@@ -3,7 +3,7 @@ window.onload = function() {
 
 
 // Establish array of wordbank words to use for multiple games
-var wordBank = ["santa", "presents", "cheese", "chicken", "steak", "jello", "asparagus", "meatloaf"];
+var wordBank = ["santa", "presents", "wreath", "christmas", "sleigh", "stocking", "reindeer", "snowflake"];
 
 // var numWords = wordBank.length;
 
@@ -71,12 +71,14 @@ guessLeft--;
  }
  else{
    alert("Game over. Play again. I need this.")
+   loss++;
  }
 }
 //Input guesses on DOM
 // document.write(keyPressed).textContent = guessLeft;
 // console.log("You have " + guessLeft + " left");
 
+document.getElementById("gameWinCounter").innerHTML = wins;
 document.getElementById("current_word").innerHTML = underScores.join(" ");
 document.getElementById("guessesRemain").innerHTML = guessLeft; //only do a join if you're working with items in an array
 document.getElementById("incorrectGuesses").innerHTML = wrongLetter.join(" ");
