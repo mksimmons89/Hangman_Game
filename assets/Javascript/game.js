@@ -62,11 +62,15 @@ if(randomWord.indexOf(keyPressed) > -1)
 } //If wrong then push the user's lives decrease
 else {
     if (guessLeft > 0) {
-//   endGame ();
+    // endGame ();
 // }
 wrongLetter.push(keyPressed);
 guessLeft--;
-// console.log("guesses left" + guessLeft);
+
+//   console.log("guesses left" + guessLeft);
+ }
+ else{
+   alert("Game over. Play again. I need this.")
  }
 }
 //Input guesses on DOM
@@ -74,6 +78,7 @@ guessLeft--;
 // console.log("You have " + guessLeft + " left");
 
 document.getElementById("current_word").innerHTML = underScores.join(" ");
+document.getElementById("guessesRemain").innerHTML = guessLeft; //only do a join if you're working with items in an array
+document.getElementById("incorrectGuesses").innerHTML = wrongLetter.join(" ");
 }
-
 }
