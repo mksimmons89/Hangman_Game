@@ -56,7 +56,7 @@ if(randomWord.indexOf(keyPressed) > -1)
     if (randomWordSplit[i] === keyPressed)
     {
       underScores[i] = keyPressed; //underScores is equal to userGuesses
-      console.log(underScores);
+      // console.log(underScores);
     }
   }
 } //If wrong then push the user's lives decrease
@@ -67,8 +67,18 @@ else {
 wrongLetter.push(keyPressed);
 guessLeft--;
 
-//   console.log("guesses left" + guessLeft);
- }
+//   console.log("guesses left" + guessLeft);t
+}
+var randomWordSplitString = randomWordSplit.join(" ")
+// console.log(randomWordSplitString)
+var underScoresString = underScores.join(" ")
+// console.log(underScoresString)
+if (randomWordSplitString === underScoresString){
+  alert("you win")
+  wins ++
+}
+
+
  else{
    alert("Game over. Play again. I need this.")
    loss++;
