@@ -30,59 +30,47 @@ var randomWordSplit = Array.from(randomWord);
 // create underscore varible per random word selected
 for (var i = 0; i < randomWord.length; i++) {
   // console.log(wordBank[i]);
-underScores.push('_');
-
-
+  underScores.push('_');
 }
   //Print underScores to screen
-
 
 // getting user's inputs letters
 document.onkeyup = function(event){
 
-var keyPressed = event.key;
+  var keyPressed = event.key;
 
 //Checking if letter exist inside the word
-if(randomWord.indexOf(keyPressed) > -1)
-{
-
-
-  for (var i = 0; i < randomWordSplit.length; i++) {
-
-    // console.log(randomWordSplit[i]);
-
-
-// if else statement now...we are saying now that if randomwordsplit =key pressed, we want to write the correct letters (thus far) in the corect word blank in out htmll
-    if (randomWordSplit[i] === keyPressed)
-    {
+  if(randomWord.indexOf(keyPressed) > -1){
+    for (var i = 0; i < randomWordSplit.length; i++) {
+      // console.log(randomWordSplit[i]);
+      // if else statement now...we are saying now that if randomwordsplit =key pressed, we want to write the correct letters (thus far) in the corect word blank in out htmll
+      if (randomWordSplit[i] === keyPressed){
       underScores[i] = keyPressed; //underScores is equal to userGuesses
       // console.log(underScores);
+      }
     }
-  }
-} //If wrong then push the user's lives decrease
-else {
+  } //If wrong then push the user's lives decrease
+  else {
     if (guessLeft > 0) {
-    // endGame ();
-// }
-wrongLetter.push(keyPressed);
-guessLeft--;
-
-//   console.log("guesses left" + guessLeft);t
+      wrongLetter.push(keyPressed);
+      guessLeft--;
+      //   console.log("guesses left" + guessLeft);t
+    }
+  var randomWordSplitString = randomWordSplit.join(" ")
+  // console.log(randomWordSplitString)
+  var underScoresString = underScores.join(" ")
+  // console.log(underScoresString)
+  if (randomWordSplitString === underScoresString){
+    alert("you win")
+    wins ++
+    document.getElementById("gameWinCounter").innerHTML = wins;
+  }
 }
-var randomWordSplitString = randomWordSplit.join(" ")
-// console.log(randomWordSplitString)
-var underScoresString = underScores.join(" ")
-// console.log(underScoresString)
-if (randomWordSplitString === underScoresString){
-  alert("you win")
-  wins ++
-}
 
-
- else{
-   alert("Game over. Play again. I need this.")
-   loss++;
- }
+  if(guessLeft==0){
+  alert("you lose")
+  loss++
+  document.getElementById("gameLossCounter").innerHTML = loss;
 }
 //Input guesses on DOM
 // document.write(keyPressed).textContent = guessLeft;
@@ -92,5 +80,6 @@ document.getElementById("gameWinCounter").innerHTML = wins;
 document.getElementById("current_word").innerHTML = underScores.join(" ");
 document.getElementById("guessesRemain").innerHTML = guessLeft; //only do a join if you're working with items in an array
 document.getElementById("incorrectGuesses").innerHTML = wrongLetter.join(" ");
+// document.getElementById("gameLossCounter").innerHTML = loss;
 }
 }
