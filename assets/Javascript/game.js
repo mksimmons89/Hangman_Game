@@ -49,6 +49,21 @@ document.onkeyup = function(event){
       // console.log(underScores);
       }
     }
+var randomWordSplitString = randomWordSplit.join(" ")
+  // console.log(randomWordSplitString)
+  var underScoresString = underScores.join(" ")
+  // console.log(underScoresString)
+  if (randomWordSplitString === underScoresString){
+    setTimeout(function(){
+  alert("you win")
+      },10)
+
+
+    
+    wins ++
+    document.getElementById("gameWinCounter").innerHTML = wins;
+  }
+
   } //If wrong then push the user's lives decrease
   else {
     if (guessLeft > 0) {
@@ -56,15 +71,7 @@ document.onkeyup = function(event){
       guessLeft--;
       //   console.log("guesses left" + guessLeft);t
     }
-  var randomWordSplitString = randomWordSplit.join(" ")
-  // console.log(randomWordSplitString)
-  var underScoresString = underScores.join(" ")
-  // console.log(underScoresString)
-  if (randomWordSplitString === underScoresString){
-    alert("you win")
-    wins ++
-    document.getElementById("gameWinCounter").innerHTML = wins;
-  }
+
 }
 
   if(guessLeft==0){
